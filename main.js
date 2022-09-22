@@ -2,7 +2,7 @@ const container = document.getElementById("container");
 let rows = document.getElementsByClassName("gridRow");
 let cells = document.getElementsByClassName("cell");
 
-makeDefaultGrid();
+makeDefaultGrid()
 
 function makeDefaultGrid() {
     makeRows(16);
@@ -23,8 +23,18 @@ function makeColumns(cellNum) {
     for (i = 0; i < rows.length; i++) {
         for (j = 0; j < cellNum; j++) {
             let newCell = document.createElement("div");
+
+            newCell.onmouseover = function() {
+                this.style.backgroundColor = "blue";
+            }
+
+            newCell.onmouseout = function() {
+                this.style.backgroundColor = "red";
+            }
+            
             rows[j].appendChild(newCell).className = "cell";
         }
     }
     
 }
+

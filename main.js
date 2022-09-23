@@ -1,12 +1,23 @@
+/*declaration of global variables and nodes */
 const container = document.getElementById("container");
 let rows = document.getElementsByClassName("gridRow");
 let cells = document.getElementsByClassName("cell");
 
+/*
+calls my makeDefaultGrid function as soon as the page loads up
+*/ 
 makeDefaultGrid()
 
+/*makeDefaultGrid function with default argumments of 16/16 */
+
 function makeDefaultGrid() {
-    makeRows(16);
-    makeColumns(16);
+    let userDesiredRows = prompt ("How many rows do you want?, 16")
+    
+    let userDesiredColumns = prompt ("How many columns do you want?, 16")
+    
+
+    makeRows(userDesiredRows);
+    makeColumns(userDesiredColumns);
 }
 
 function makeRows(rowNum) {
@@ -28,13 +39,12 @@ function makeColumns(cellNum) {
                 this.style.backgroundColor = "blue";
             }
 
-            newCell.onmouseout = function() {
+        /* newCell.onmouseout = function() {
                 this.style.backgroundColor = "red";
-            }
-            
+            } */
+
             rows[j].appendChild(newCell).className = "cell";
         }
-    }
-    
+    }    
 }
 
